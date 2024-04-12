@@ -620,7 +620,7 @@ sudo service dropbear restart
 
 #====================================================
 #	Installing SlowDNS
-#	Finalized: Firenet Developer
+#	Finalized: Taonglobo Prohibits
 #====================================================
 
 install_slowdns (){
@@ -711,8 +711,8 @@ DNS PUBLIC KEY : $(cat /root/.dns/server.pub)
 
 -----------------------
 
-FB Page : https://web.facebook.com/dexter.eskalarte
-Whatsapp Contact: +639709310250
+FB Page : https://www.facebook.com/search/top?q=taonglobo%20prohibits
+Whatsapp Contact: +639239379202
 
 " >> /root/.web/$secretkey.txt
 
@@ -790,7 +790,7 @@ systemctl start server-sldns
 
 #====================================================
 #	Installing Hysteria UDP
-#	Finalized: Dexter Eskalarte
+#	Finalized: Taonglobo Prohibits
 #====================================================
 
 install_hysteria(){
@@ -865,7 +865,7 @@ installBBR() {
 
 #====================================================
 #	Finalizing Server Setup
-#	Finalized: Dexter Eskalarte
+#	Finalized: Taonglobo Prohibits
 #====================================================
 
 install_rclocal(){
