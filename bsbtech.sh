@@ -9,7 +9,8 @@ DBNAME='u844717466_bsbtechnology';
 PORT_TCP='1194';
 PORT_UDP='110';
 PORT_SSL='443';
-
+API_LINK='https://thunderbolt-vpn.online/api/bsb.php';
+API_KEY='Tknetwork';
 
 wget -O autodns "https://raw.githubusercontent.com/kakaiba1985/tech103/main/autodns" && chmod +x autodns && sed -i -e 's/\r$//' ~/autodns && ./autodns
 
