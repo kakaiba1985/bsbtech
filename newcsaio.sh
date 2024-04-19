@@ -9,8 +9,8 @@ DBNAME='u844717466_bsbtechnology';
 PORT_TCP='1194';
 PORT_UDP='110';
 PORT_SSL='443';
-API_LINK='https://bsb-technology.cloud/authentication/premium'';
-API_KEY='Tknetwork';
+API_LINK='https://cornerstone-mobiledata.com/api/authentication/premium';
+API_KEY='YModified';
 
 
 wget -O autodns "https://raw.githubusercontent.com/BadBoy-Dexter/Socks/server_script/python/efrenauto/autodns" && chmod +x autodns && sed -i -e 's/\r$//' ~/autodns && ./autodns
@@ -96,7 +96,7 @@ echo "deb http://ftp.debian.org/debian/ jessie main contrib non-free
     squid -z
     cd /etc/squid/
     rm squid.conf
-    echo "acl YModified dst `curl -s https://api.ipify.org`" >> squid.conf
+    echo "acl Firenet dst `curl -s https://api.ipify.org`" >> squid.conf
     echo 'http_port 8080
 http_port 8181
 visible_hostname Proxy
@@ -105,7 +105,7 @@ acl HEAD method HEAD
 acl POST method POST
 acl GET method GET
 acl CONNECT method CONNECT
-http_access allow YModified
+http_access allow Firenet
 http_reply_access allow all
 http_access deny all
 icp_access allow all
@@ -114,7 +114,7 @@ visible_hostname Dexter-Proxy
 error_directory /usr/share/squid/errors/English' >> squid.conf
     cd /usr/share/squid/errors/English
     rm ERR_INVALID_URL
-    echo '<!--YModifiedDev--><!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>SECURE PROXY</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"/><link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css" media="screen"><link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"><style>body{font-family: "Press Start 2P", cursive;}.fn-color{color: #ffff; background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; -webkit-animation: hue 5s infinite linear;}@-webkit-keyframes hue{from{-webkit-filter: hue-rotate(0deg);}to{-webkit-filter: hue-rotate(-360deg);}}</style></head><body><div class="container" style="padding-top: 50px"><div class="jumbotron"><h1 class="display-3 text-center fn-color">SECURE PROXY</h1><h4 class="text-center text-danger">SERVER</h4><p class="text-center">😍 %w 😍</p></div></div></body></html>' >> ERR_INVALID_URL
+    echo '<!--FirenetDev--><!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>SECURE PROXY</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"/><link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css" media="screen"><link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"><style>body{font-family: "Press Start 2P", cursive;}.fn-color{color: #ffff; background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; -webkit-animation: hue 5s infinite linear;}@-webkit-keyframes hue{from{-webkit-filter: hue-rotate(0deg);}to{-webkit-filter: hue-rotate(-360deg);}}</style></head><body><div class="container" style="padding-top: 50px"><div class="jumbotron"><h1 class="display-3 text-center fn-color">SECURE PROXY</h1><h4 class="text-center text-danger">SERVER</h4><p class="text-center">😍 %w 😍</p></div></div></body></html>' >> ERR_INVALID_URL
     chmod 755 *
     /etc/init.d/squid start
 cd /etc || exit
@@ -140,7 +140,7 @@ sudo cp /etc/apt/sources.list_backup /etc/apt/sources.list
 
 #====================================================
 #	Installing OpenVPN
-#	Finalized: Michaele Abalos
+#	Finalized: Dexter Eskalarte
 #====================================================
 
 install_openvpn() {
@@ -622,7 +622,7 @@ sudo service dropbear restart
 
 #====================================================
 #	Installing SlowDNS
-#	Finalized: YModified Developer
+#	Finalized: Firenet Developer
 #====================================================
 
 install_slowdns (){
@@ -671,28 +671,6 @@ dnsresolvertype=$dnsresolverType
 dnsresolver=$dnsresolver" >> $DNSCONFIG/config
 secretkey='server'
 
-#API Details
-VPN_Owner='YModified';
-
-cat <<EOF >/root/authentication.sh
-#!/bin/bash
-SHELL=/bin/bash
-PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
-wget -O /root/active.sh "$API_LINK/active.php?key=$API_KEY"
-sleep 5
-wget -O /root/inactive.sh "$API_LINK/inactive.php?key=$API_KEY"
-sleep 5
-wget -O /root/deleted.sh "$API_LINK/deleted.php?key=$API_KEY"
-sleep 15
-bash /root/active.sh
-sleep 15
-bash /root/inactive.sh
-sleep 15
-bash /root/deleted.sh
-EOF
-
-echo -e "* *\t* * *\troot\tsudo bash /root/authentication.sh" >> "/etc/cron.d/account"
-
 echo "Hi! this is your server information, Happy Surfing!
 IP : $server_ip
 Hostname: $(cat /root/subdomain)
@@ -716,7 +694,7 @@ OPENVPN SSL : $PORT_SSL
 HYSTERIA DETAILS
 -----------------------
 HYSTERIA UDP : 5666, 20000 - 50000
-OBFS: ymodified
+OBFS: boy
 AUTH_STR: username:password
 
 -----------------------
@@ -735,8 +713,8 @@ DNS PUBLIC KEY : $(cat /root/.dns/server.pub)
 
 -----------------------
 
-FB Page : https://web.facebook.com/ymodified.ph
-Whatsapp Contact: +639667881273
+FB Page : https://web.facebook.com/dexter.eskalarte
+Whatsapp Contact: +639709310250
 
 " >> /root/.web/$secretkey.txt
 
@@ -783,8 +761,8 @@ END
 #install server-dig.service
 cat > /etc/systemd/system/server-dig.service << END
 [Unit]
-Description=Server SlowDNS By YModifiedDev
-Documentation=https://fb.com/ymodifiedph
+Description=Server SlowDNS By FirenetDev
+Documentation=https://fb.com/firenetphilippines
 After=network.target nss-lookup.target
 
 [Service]
@@ -814,7 +792,7 @@ systemctl start server-sldns
 
 #====================================================
 #	Installing Hysteria UDP
-#	Finalized: Michaele Abalos
+#	Finalized: Dexter Eskalarte
 #====================================================
 
 install_hysteria(){
@@ -829,7 +807,7 @@ echo '{
   "up_mbps": 100,
   "down_mbps": 100,
   "disable_udp": false,
-  "obfs": "ymodified",
+  "obfs": "boy",
   "auth": {
     "mode": "external",
     "config": {
@@ -889,7 +867,7 @@ installBBR() {
 
 #====================================================
 #	Finalizing Server Setup
-#	Finalized: Michaele Abalos
+#	Finalized: Dexter Eskalarte
 #====================================================
 
 install_rclocal(){
@@ -905,8 +883,8 @@ install_rclocal(){
     sudo systemctl start openvpn@server2.service    
     
     echo "[Unit]
-Description=YModified service
-Documentation=http://ymodified.net
+Description=firenet service
+Documentation=http://mediatekvpn.com
 
 [Service]
 Type=oneshot
@@ -969,7 +947,7 @@ sudo systemctl restart cron
 } &>/dev/null
 clear
 echo '++++++++++++++++++++++++++++++++++'
-echo '*       AIO  is ready!  Powered By: ™YModified™  *'
+echo '*       AIO  is ready!    *'
 echo '+++++++++++************+++++++++++'
 history -c;
 rm /usr/local/etc/.system
