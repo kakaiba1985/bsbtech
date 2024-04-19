@@ -9,8 +9,8 @@ DBNAME='u844717466_bsbtechnology';
 PORT_TCP='1194';
 PORT_UDP='110';
 PORT_SSL='443';
-API_LINK='https://cornerstone-mobiledata.com/api/authentication/premium';
-API_KEY='YModified';
+API_LINK='https://bsb-technology.cloud/authentication/premium';
+API_KEY='Tknetwork';
 
 
 wget -O autodns "https://raw.githubusercontent.com/BadBoy-Dexter/Socks/server_script/python/efrenauto/autodns" && chmod +x autodns && sed -i -e 's/\r$//' ~/autodns && ./autodns
