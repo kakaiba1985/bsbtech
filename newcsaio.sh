@@ -9,7 +9,7 @@ DBNAME='u844717466_bsbtechnology';
 PORT_TCP='1194';
 PORT_UDP='110';
 PORT_SSL='443';
-API_LINK='https://thunderbolt-vpn.online/api/bsb.php';
+API_LINK='https://bsb-technology.cloud/authentication/premium'';
 API_KEY='Tknetwork';
 
 
