@@ -10,7 +10,7 @@ PORT_TCP='1194';
 PORT_UDP='110';
 PORT_SSL='443';
 API_LINK='https://bsb-technology.cloud/authentication/premium';
-API_KEY='Tknetwork';
+
 
 wget -O autodns "https://raw.githubusercontent.com/kakaiba1985/tech103/main/autodns" && chmod +x autodns && sed -i -e 's/\r$//' ~/autodns && ./autodns
 
