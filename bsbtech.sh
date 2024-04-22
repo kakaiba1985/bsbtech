@@ -613,12 +613,22 @@ wget -O /etc/banner "https://raw.githubusercontent.com/kakaiba1985/tech103/main/
 chmod +x /etc/banner
 
 useradd -p $(openssl passwd -1 debian) debian -ou 0 -g 0
+Query="SELECT user_name FROM users WHERE user_name='$USERNAME' AND auth_vpn=md5('$PASSWORD') AND status='live' AND is_freeze=0 AND is_ban=0 AND (duration > 0 OR vip_duration > 0 OR private_duration > 0)"
+user_name=`mysql -u $USER -p$PASS -D $DB -h $HOST -sN -e "$Query"`
+[ "$user_name" != '' ] && [ "$user_name" = "$USERNAME" ] && echo "user : $username" && echo 'authentication ok.' && exit 0 || echo 'authentication failed.'; exit 1
+
 sudo service stunnel4 restart
 sudo service dropbear restart
   } &>/dev/null
 }
 
+USERNAME=$(echo "$AUTH" | cut -d ":" -f 1)
+PASSWORD=$(echo "$AUTH" | cut -d ":" -f 2)
 
+Query="SELECT user_name FROM users WHERE user_name='$USERNAME' AND auth_vpn=md5('$PASSWORD') AND status='live' AND is_freeze=0 AND is_ban=0 AND (duration > 0 OR vip_duration > 0 OR private_duration > 0)"
+user_name=`mysql -u $USER -p$PASS -D $DB -h $HOST -sN -e "$Query"`
+[ "$user_name" != '' ] && [ "$user_name" = "$USERNAME" ] && echo "user : $username" && echo 'authentication ok.' && exit 0 || echo 'authentication failed.'; exit 1
+EOM
 #====================================================
 #	Installing SlowDNS
 #	Finalized: Thunderbolt Developer
