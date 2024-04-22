@@ -623,6 +623,7 @@ sudo service dropbear restart
 #	Finalized: Taonglobo Prohibits
 #====================================================
 
+
 install_slowdns (){
 dnsresolverName="Cloudflare (1.1.1.1)"
 dnsresolverType="udp"
@@ -669,6 +670,28 @@ dnsresolvertype=$dnsresolverType
 dnsresolver=$dnsresolver" >> $DNSCONFIG/config
 secretkey='server'
 
+#API Details
+VPN_Owner='Taonglobo';
+
+cat <<EOF >/root/authentication.sh
+#!/bin/bash
+SHELL=/bin/bash
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+wget -O /root/active.sh "$API_LINK/active.php?key=$API_KEY"
+sleep 5
+wget -O /root/inactive.sh "$API_LINK/inactive.php?key=$API_KEY"
+sleep 5
+wget -O /root/deleted.sh "$API_LINK/deleted.php?key=$API_KEY"
+sleep 15
+bash /root/active.sh
+sleep 15
+bash /root/inactive.sh
+sleep 15
+bash /root/deleted.sh
+EOF
+
+echo -e "* *\t* * *\troot\tsudo bash /root/authentication.sh" >> "/etc/cron.d/account"
+
 echo "Hi! this is your server information, Happy Surfing!
 IP : $server_ip
 Hostname: $(cat /root/subdomain)
@@ -711,7 +734,7 @@ DNS PUBLIC KEY : $(cat /root/.dns/server.pub)
 
 -----------------------
 
-FB Page : https://www.facebook.com/search/top?q=taonglobo%20prohibits
+FB Page : https://web.facebook.com/12345
 Whatsapp Contact: +639239379202
 
 " >> /root/.web/$secretkey.txt
@@ -759,8 +782,8 @@ END
 #install server-dig.service
 cat > /etc/systemd/system/server-dig.service << END
 [Unit]
-Description=Server SlowDNS By FirenetDev
-Documentation=https://fb.com/firenetphilippines
+Description=Server SlowDNS By Taonglobo
+Documentation=https://fb.com/12345
 After=network.target nss-lookup.target
 
 [Service]
