@@ -4,7 +4,7 @@ apt update
 apt install sudo
 HOST='195.35.10.163';
 USER='u844717466_bsbtechuser';
-PASS='kakaibA123A';
+PASS='soldierA062185';
 DBNAME='u844717466_bsbtechnology';
 PORT_TCP='1194';
 PORT_UDP='110';
